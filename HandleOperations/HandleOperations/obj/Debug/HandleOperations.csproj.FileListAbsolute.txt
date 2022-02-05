@@ -1,0 +1,8 @@
+D:\GoodTechniques\-ood-echniques-\HandleOperations\HandleOperations\bin\Debug\HandleOperations.exe.config
+D:\GoodTechniques\-ood-echniques-\HandleOperations\HandleOperations\bin\Debug\HandleOperations.exe
+D:\GoodTechniques\-ood-echniques-\HandleOperations\HandleOperations\bin\Debug\HandleOperations.pdb
+D:\GoodTechniques\-ood-echniques-\HandleOperations\HandleOperations\obj\Debug\HandleOperations.csproj.AssemblyReference.cache
+D:\GoodTechniques\-ood-echniques-\HandleOperations\HandleOperations\obj\Debug\HandleOperations.csproj.SuggestedBindingRedirects.cache
+D:\GoodTechniques\-ood-echniques-\HandleOperations\HandleOperations\obj\Debug\HandleOperations.csproj.CoreCompileInputs.cache
+D:\GoodTechniques\-ood-echniques-\HandleOperations\HandleOperations\obj\Debug\HandleOperations.exe
+D:\GoodTechniques\-ood-echniques-\HandleOperations\HandleOperations\obj\Debug\HandleOperations.pdb
