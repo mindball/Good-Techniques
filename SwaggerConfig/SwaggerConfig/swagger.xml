@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SwaggerConfig</name>
+    </assembly>
+    <members>
+        <member name="M:SwaggerConfig.Controllers.Employee.EmployeeController.Get">
+            <summary>
+            Get list of all Employees
+            </summary>
+            <returns>The list of EmployeeViewMode</returns>
+        </member>
+        <member name="M:SwaggerConfig.Controllers.Employee.EmployeeController.Post(SwaggerConfig.Models.Employee.EmployeeViewModel)">
+             <summary>
+             Create employee
+             </summary>
+            <remarks>
+            Sample request:
+             
+                 Post api/Employee
+                 {
+                     "firstName": "Mike",
+                     "lastName": "Bowle",
+                     "emailId": "test@gmail.com"
+                 }
+                 
+            </remarks>
+             <param name="employee"></param>
+             <returns></returns>
+        </member>
+    </members>
+</doc>
