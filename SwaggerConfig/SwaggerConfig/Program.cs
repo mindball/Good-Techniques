@@ -1,11 +1,19 @@
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.OpenApi.Models;
+using SwaggerConfig.Infrastructure.Filters;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Reflection;
+using System.Web.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    //Remove globally text/plain response
+    options.OutputFormatters.RemoveType<StringOutputFormatter>();
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen( c =>
@@ -32,6 +40,8 @@ builder.Services.AddSwaggerGen( c =>
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
+
+    c.OperationFilter<Consumes>();
 });
 
 var app = builder.Build();

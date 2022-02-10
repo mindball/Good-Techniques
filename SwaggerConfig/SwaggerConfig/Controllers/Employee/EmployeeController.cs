@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using SwaggerConfig.Models.Employee;
 
 namespace SwaggerConfig.Controllers.Employee
@@ -16,7 +15,7 @@ namespace SwaggerConfig.Controllers.Employee
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [Produces("application/json")]
+        //[Produces("application/json")]       
         public ActionResult<IEnumerable<EmployeeViewModel>> Get()
         {
             var employees = this.GetEmployees();
@@ -40,7 +39,7 @@ namespace SwaggerConfig.Controllers.Employee
         [HttpGet("{id}", Name = "Get")]
         //[ProducesResponseType(StatusCodes.Status200OK)]
         //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        [Produces("application/json")]
+        //[Produces("application/json")]        
         public ActionResult<EmployeeViewModel> Get(int id)
         {
             var employee = GetEmployees().Find(e => e.Id == id);
@@ -69,7 +68,7 @@ namespace SwaggerConfig.Controllers.Employee
         /// <returns></returns>
         // POST: api/Employee
         [HttpPost]
-        [Produces("application/json")]
+        //[Produces("application/json")]  
         public EmployeeViewModel Post([FromBody] EmployeeViewModel employee)
         {
             // Logic to create new Employee
