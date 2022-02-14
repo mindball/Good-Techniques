@@ -45,6 +45,13 @@
   <ItemGroup>
     <Compile Include="Contravariant\IContraVariant.cs" />
     <Compile Include="Covariant\ICovariant.cs" />
+    <Compile Include="Delegates\IAccountDelegate.cs" />
+    <Compile Include="Delegates\CheckingAccountDelegate.cs" />
+    <Compile Include="Delegates\SavingAccountDelegate.cs" />
+    <Compile Include="OtherTutorial\Account.cs" />
+    <Compile Include="OtherTutorial\ContravarianceInGenerics\AccountTwo.cs" />
+    <Compile Include="OtherTutorial\ContravarianceInGenerics\CheckingAccountTwo.cs" />
+    <Compile Include="OtherTutorial\ContravarianceInGenerics\SavingAccountTwo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
