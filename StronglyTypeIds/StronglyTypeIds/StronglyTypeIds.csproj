@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\StronglyTypedId.Generator.0.2.1\build\StronglyTypedId.Generator.props" Condition="Exists('..\packages\StronglyTypedId.Generator.0.2.1\build\StronglyTypedId.Generator.props')" />
+  <Import Project="..\packages\CodeGeneration.Roslyn.Tool.0.7.63\build\CodeGeneration.Roslyn.Tool.props" Condition="Exists('..\packages\CodeGeneration.Roslyn.Tool.0.7.63\build\CodeGeneration.Roslyn.Tool.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +37,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CodeGeneration.Roslyn.Attributes, Version=0.7.0.0, Culture=neutral, PublicKeyToken=ec41cf4c17a5eaf3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CodeGeneration.Roslyn.Attributes.0.7.63\lib\net40\CodeGeneration.Roslyn.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="StronglyTypedId.Attributes, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StronglyTypedId.Attributes.0.2.1\lib\netstandard2.0\StronglyTypedId.Attributes.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,7 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\ProductIdConverter.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\StrongTypesIds\OrderId.cs" />
     <Compile Include="Models\StrongTypesIds\ProductId.cs" />
     <Compile Include="TestDbContext.cs" />
     <Compile Include="Program.cs" />
@@ -52,7 +67,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Readme.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\CodeGeneration.Roslyn.Tool.0.7.63\build\CodeGeneration.Roslyn.Tool.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CodeGeneration.Roslyn.Tool.0.7.63\build\CodeGeneration.Roslyn.Tool.props'))" />
+    <Error Condition="!Exists('..\packages\CodeGeneration.Roslyn.Tool.0.7.63\build\CodeGeneration.Roslyn.Tool.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CodeGeneration.Roslyn.Tool.0.7.63\build\CodeGeneration.Roslyn.Tool.targets'))" />
+    <Error Condition="!Exists('..\packages\StronglyTypedId.Generator.0.2.1\build\StronglyTypedId.Generator.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StronglyTypedId.Generator.0.2.1\build\StronglyTypedId.Generator.props'))" />
+    <Error Condition="!Exists('..\packages\StronglyTypedId.Generator.0.2.1\build\StronglyTypedId.Generator.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StronglyTypedId.Generator.0.2.1\build\StronglyTypedId.Generator.targets'))" />
+  </Target>
+  <Import Project="..\packages\CodeGeneration.Roslyn.Tool.0.7.63\build\CodeGeneration.Roslyn.Tool.targets" Condition="Exists('..\packages\CodeGeneration.Roslyn.Tool.0.7.63\build\CodeGeneration.Roslyn.Tool.targets')" />
+  <Import Project="..\packages\StronglyTypedId.Generator.0.2.1\build\StronglyTypedId.Generator.targets" Condition="Exists('..\packages\StronglyTypedId.Generator.0.2.1\build\StronglyTypedId.Generator.targets')" />
 </Project>

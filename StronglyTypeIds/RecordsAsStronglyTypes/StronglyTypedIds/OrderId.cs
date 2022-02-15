@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StronglyTypeIds
+namespace RecordsAsStronglyTypes.StronglyTypedIds
 {
-    public  class TestDbContext
+    public record OrderId(Guid Value) : StrongTypeIdEntityBase<Guid>(Value)
     {
     }
 }
